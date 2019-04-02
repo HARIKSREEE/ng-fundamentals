@@ -19,4 +19,8 @@ import { EventEmitter } from "@angular/core";
 })
 export class EventsThumbnailComponent {
   @Input() event: any;
+
+  showMessageFoo() {
+    console.log("This is a hell foo...!");
+  }
 }
