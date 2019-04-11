@@ -5,6 +5,10 @@ export class EventService {
   getEvents() {
     return EVENTS;
   }
+
+  getEvent(id: number) {
+    return Events.find(event => event.id === id);
+  }
 }
 
 const EVENTS = [

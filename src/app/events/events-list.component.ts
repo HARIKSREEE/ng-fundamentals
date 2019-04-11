@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { EventService } from "./shared/events.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "events-list",
@@ -9,7 +10,11 @@ import { EventService } from "./shared/events.service";
       <hr />
       <div class="row">
         <div *ngFor="let event of events" class="col-md-5">
-          <event-thumbnail [event]="event"> </event-thumbnail>
+          <event-thumbnail
+            (click)="handleThumbnailClick(event.name)"
+            [event]="event"
+          >
+          </event-thumbnail>
         </div>
       </div>
     </div>
@@ -17,11 +22,16 @@ import { EventService } from "./shared/events.service";
 })
 export class EventsListComponent implements OnInit {
   events: any[];
-  constructor(private eventService: EventService) {}
+  constructor(
+    private eventService: EventService,
+    private toastrService: ToastrService
+  ) {}
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.events = this.eventService.getEvents();
+  }
+
+  handleThumbnailClick(eventName) {
+    this.toastrService.success(eventName);
   }
 }
