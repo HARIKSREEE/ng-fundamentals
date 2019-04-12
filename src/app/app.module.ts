@@ -11,6 +11,7 @@ import { NavBarComponent } from "./nav/navbar.component";
 import { EventService } from "./events/shared/events.service";
 import { ToastrModule } from "ngx-toastr";
 import { appRoutes } from "./routes";
+import { CreteEventComponent } from "./events/create-event.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { appRoutes } from "./routes";
     EventsListComponent,
     EventDetailsComponent,
     EventsThumbnailComponent,
-    NavBarComponent
+    NavBarComponent,
+    CreteEventComponent
   ],
   imports: [
     BrowserModule,
