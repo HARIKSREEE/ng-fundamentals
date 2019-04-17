@@ -12,6 +12,8 @@ import { EventService } from "./events/shared/events.service";
 import { ToastrModule } from "ngx-toastr";
 import { appRoutes } from "./routes";
 import { CreteEventComponent } from "./events/create-event.component";
+import { Error404Component } from "./errors/404.component";
+import { EventRouteActivator } from "./events/event-details/event-route-activator.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { CreteEventComponent } from "./events/create-event.component";
     EventDetailsComponent,
     EventsThumbnailComponent,
     NavBarComponent,
-    CreteEventComponent
+    CreteEventComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ import { CreteEventComponent } from "./events/create-event.component";
     ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EventService],
+  providers: [EventService, EventRouteActivator],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule {}
