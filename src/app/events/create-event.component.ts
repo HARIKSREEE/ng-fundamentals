@@ -18,6 +18,8 @@ import { routerNgProbeToken } from "@angular/router/src/router_module";
   `
 })
 export class CreteEventComponent implements OnInit {
+  isDirty: boolean = true;
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
